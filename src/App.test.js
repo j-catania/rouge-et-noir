@@ -27,8 +27,8 @@ test('manipule 12345678', () => {
     expect(rt).toBe('24683751');
 });
 
-test('find algo for 2', () => {
-    const rt = findAlgo(2);
+test('find algo for 4', () => {
+    const rt = findAlgo(4);
     expect(rt.join('')).toBe('RNNR');
 });
 
