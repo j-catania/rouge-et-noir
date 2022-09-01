@@ -2,7 +2,7 @@ import './App.css';
 import {Alert, Button, Snackbar, TextField, ToggleButton, ToggleButtonGroup} from '@mui/material';
 import {useState} from 'react';
 
-const manipule(array) {
+const manipule = (array) => {
     let result = '';
     
     while (splited.length > 0) {
