@@ -23,7 +23,7 @@ test('translate 1 2 1 2 2', () => {
 });
 
 test('manipule 12345678', () => {
-    const rt = manipule('12345678'.split(''));
+    const rt = manipule('12345678'.split('')).join('');
     expect(rt).toBe('24683751');
 });
 
