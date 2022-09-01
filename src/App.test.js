@@ -13,7 +13,7 @@ test('if algo is correct', () => {
 });
 
 test('if algo is incorrect', () => {
-    const rt = isAlgoCorrect('RNNRNNRRR');
+    const rt = isAlgoCorrect('RNNRNNRRRR');
     expect(rt).toBeFalsy();
 });
 
@@ -29,5 +29,5 @@ test('manipule 12345678', () => {
 
 test('find algo for 8', () => {
     const rt = findAlgo(8);
-    expect(rt).toBe('RNRNRNRN');
+    expect(rt.join('')).toBe('RNNRNNRR');
 });
