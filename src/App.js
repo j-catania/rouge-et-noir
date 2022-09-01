@@ -73,7 +73,7 @@ console.log('manipuled',manipuled);
     }
 
     for (let i = 0; i < count; i++) {
-        ordered[i] = rt.find(item => item.letter === i).color;
+        ordered[i] = rt.find(item => item.letter === (i+'')).color;
     }
 console.log('ordered',ordered)
 
