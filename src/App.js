@@ -5,11 +5,11 @@ import {useState} from 'react';
 const manipule = (array) => {
     let result = '';
     
-    while (splited.length > 0) {
+    while (array.length > 0) {
         if (i % 2 === 1) {
             result += array.shift();
         } else {
-            splited.push(array.shift())
+            array.push(array.shift())
         }
         i++;
     }
