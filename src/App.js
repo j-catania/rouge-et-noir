@@ -4,6 +4,7 @@ import {useState} from 'react';
 
 const manipule = (array) => {
     let result = '';
+    let i = 0;
     
     while (array.length > 0) {
         if (i % 2 === 1) {
@@ -19,7 +20,6 @@ const manipule = (array) => {
 
 const isAlgoCorrect = (algo) => {
     const splited = algo.split('');
-    let i = 0
     let incorrect = false;
 
     const result = manipule(splited)
@@ -137,4 +137,4 @@ function App() {
 }
 
 export default App;
-export {isAlgoCorrect, translateNumbersToAlgo, findAlgo};
+export {isAlgoCorrect, translateNumbersToAlgo, findAlgo, manipule};
