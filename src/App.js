@@ -59,7 +59,7 @@ const findAlgo = (count) => {
     let rt = [];
     
     for (let i = 0; i < count; i++) {
-        ordered.push((i+1)+'');
+        ordered.push(i+'');
     }
 console.log('ordered',ordered);
 
@@ -70,7 +70,13 @@ console.log('manipuled',manipuled);
         rt.push({letter: manipuled[i], color: actualLetter});
         actualLetter = actualLetter === 'N' ? 'R' : 'N';
     }
-    return rt;
+
+    for (let i = 0; i < count; i++) {
+        ordered[i] = rt.find(item => item.letter == i).color;
+    }
+console.log('ordered',ordered)
+
+    return ordered;
 }
 
 function App() {
