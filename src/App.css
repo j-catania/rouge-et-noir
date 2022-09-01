@@ -14,6 +14,10 @@
     margin-bottom: 2rem;
 }
 
+div.App div.form[hidden] {
+    display: none;
+}
+
 .App .form > * {
     margin: 0 1rem;
 }
@@ -35,6 +39,15 @@ h5 {
 
 small {
     margin-bottom: 2rem;
+}
+
+#show-slover {
+    width: 5vw;
+    height: 5vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: transparent;
 }
 
 @keyframes rouge {

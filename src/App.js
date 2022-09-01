@@ -80,14 +80,11 @@ const findAlgo = (count) => {
 }
 
 function App() {
-    const [open, setOpen] = useState(false);
+    const [notif, setNotif] = useState('');
     const [data, setData] = useState('');
-    const [correct, setCorrect] = useState();
+    const [correct, setCorrect] = useState(true);
     const [type, setType] = useState('algo');
-    //const [error, setError] = useState();
-
-    //const validData = () => {}
-
+    const [showSolver, setShowSolver] = useState(false);
 
     return (
         <div className="App">
@@ -95,7 +92,7 @@ function App() {
             <h5>Face caché, placez la première carte sous la pile, sortez la seconde et ainsi de suite. Les
                 cartes sorties doivent alterner de couleur.</h5>
             <small>C'est tout !</small>
-            <div className="form">
+            <div className="form" hidden={showSolver}>
                 <ToggleButtonGroup
                     value={type}
                     exclusive
@@ -118,8 +115,23 @@ function App() {
                                setData(e.target.value)
                            }}/>
             </div>
+            <div className="form" hidden={!showSolver}>
+                <TextField label="Nombre de cartes"
+                           value={data}
+                           placeholder='8'
+                           onChange={e => {
+                               setData(e.target.value)
+                           }}/>
+            </div>
 
-            <div className="actions">
+            <div className="actions" hidden={!showSolver}>
+                <Button variant="contained"
+                        onClick={_ => {
+                            setNotif(findAlgo(data));
+                        }}
+                        disabled={!data}>Trouve !</Button>
+            </div>
+            <div className="actions" hidden={showSolver}>
                 <Button variant="contained"
                         onClick={_ => {
                             let info = '';
@@ -129,7 +141,7 @@ function App() {
                                 info = translateNumbersToAlgo(data);
                             }
                             setCorrect(isAlgoCorrect(info))
-                            setOpen(true);
+                            setNotif(correct ? 'Bravo 💪' : 'Ça ne correspond pas 😩');
                         }}
                         disabled={!data}>Vérifier</Button>
 
@@ -141,14 +153,17 @@ function App() {
             </div>
 
             <Snackbar
-                open={open}
+                open={!!notif}
                 autoHideDuration={6000}
                 anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
-                onClose={_ => setOpen(false)}
+                onClose={_ => setNotif('')}
             >
-                <Alert
-                    severity={correct ? 'success' : 'error'}>{correct ? 'Bravo 💪' : 'Ça ne correspond pas 😩'}</Alert>
+                <Alert severity={correct ? 'success' : 'error'}>{notif}</Alert>
             </Snackbar>
+            <div id="show-slover" onClick={_ => {
+                setShowSolver(!showSolver);
+                setData('');
+            }}></div>
         </div>
     );
 }
