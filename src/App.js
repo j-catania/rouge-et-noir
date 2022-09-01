@@ -57,16 +57,15 @@ const translateNumbersToAlgo = (numbers) => {
 const findAlgo = (count) => {
     const ordered = [];
     let rt = [];
-    //for (let i = 0; i < count; i++) {
-        //final += i % 2 === 0 ? 'R' : 'N'
-    //}
+    
     for (let i = 0; i < count; i++) {
-        ordered.push(i+'');
+        ordered.push((i+1)+'');
     }
+console.log('ordered',ordered);
 
     const manipuled = manipule(ordered);
     let actualLetter = 'N';
-console.log(manipuled);
+console.log('manipuled',manipuled);
     for (let i = 0; i < count; i++) {
         rt.push({letter: manipuled[i], color: actualLetter});
         actualLetter = actualLetter === 'N' ? 'R' : 'N';
