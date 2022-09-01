@@ -2,20 +2,27 @@ import './App.css';
 import {Alert, Button, Snackbar, TextField, ToggleButton, ToggleButtonGroup} from '@mui/material';
 import {useState} from 'react';
 
-const isAlgoCorrect = (algo) => {
-    const splited = algo.split('');
+const manipule(array) {
     let result = '';
-    let i = 0
-    let incorrect = false;
-
+    
     while (splited.length > 0) {
         if (i % 2 === 1) {
-            result += splited.shift();
+            result += array.shift();
         } else {
-            splited.push(splited.shift())
+            splited.push(array.shift())
         }
         i++;
     }
+    
+    return result;
+}
+
+const isAlgoCorrect = (algo) => {
+    const splited = algo.split('');
+    let i = 0
+    let incorrect = false;
+
+    const result = manipule(splited)
 
     for (let j = 0; j < result.length; j += 2) {
         incorrect = incorrect || result[j] === result[j + 1];
@@ -64,11 +71,9 @@ function App() {
     const [data, setData] = useState('');
     const [correct, setCorrect] = useState();
     const [type, setType] = useState('algo');
-    const [error, setError] = useState();
+    //const [error, setError] = useState();
 
-    const validData = () => {
-
-    }
+    //const validData = () => {}
 
 
     return (
