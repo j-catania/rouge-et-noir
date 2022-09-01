@@ -5,7 +5,7 @@ import {useState} from 'react';
 const manipule = (array) => {
     let result = [];
     let i = 0;
-    
+
     while (array.length > 0) {
         if (i % 2 === 1) {
             result.push(array.shift());
@@ -14,7 +14,7 @@ const manipule = (array) => {
         }
         i++;
     }
-    
+
     return result;
 }
 
@@ -25,7 +25,7 @@ const isAlgoCorrect = (algo) => {
     const result = manipule(splited);
 
     for (let j = 0; j < result.length; j += 2) {
-        incorrect = incorrect || result[j] === result[j+1];
+        incorrect = incorrect || result[j] === result[j + 1];
     }
 
     //console.log(`%cAlgo : ${algo} result[${result.join('')}]${incorrect ? 'KO' : 'OK'}`, `color: ${incorrect ? 'red' : 'green'}`)
@@ -57,9 +57,9 @@ const translateNumbersToAlgo = (numbers) => {
 const findAlgo = (count) => {
     const ordered = [];
     let rt = [];
-    
+
     for (let i = 0; i < count; i++) {
-        ordered.push(i+'');
+        ordered.push(i + '');
     }
 //console.log('ordered',ordered);
 
@@ -72,7 +72,7 @@ const findAlgo = (count) => {
     }
 
     for (let i = 0; i < count; i++) {
-        ordered[i] = rt.find(item => item.letter === (i+'')).color;
+        ordered[i] = rt.find(item => item.letter === (i + '')).color;
     }
 //console.log('ordered',ordered)
 
@@ -91,6 +91,10 @@ function App() {
 
     return (
         <div className="App">
+            <h1>Le rouge et noir</h1>
+            <h4>Le but : Face caché, placez la première carte sous la pile, sortez la seconde et ainsi de suite. Les
+                cartes sorties doivent alterner de couleur.</h4>
+            <small>C'est tout !</small>
             <div className="form">
                 <ToggleButtonGroup
                     value={type}
@@ -109,13 +113,13 @@ function App() {
                 <TextField label={type === 'algo' ? 'Algorithme' : 'Numéros'}
                            variant="outlined"
                            value={data}
-
+                           placeholder={type === 'algo' ? 'NNRRNNRR' : '2 2 1 1'}
                            onChange={e => {
                                setData(e.target.value)
                            }}/>
             </div>
 
-            <div className="form">
+            <div className="actions">
                 <Button variant="contained"
                         onClick={_ => {
                             let info = '';
