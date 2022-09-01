@@ -55,15 +55,23 @@ const translateNumbersToAlgo = (numbers) => {
 }
 
 const findAlgo = (count) => {
-    let final = ''
+    const final = [];
+    let rt = [];
+    //for (let i = 0; i < count; i++) {
+        //final += i % 2 === 0 ? 'R' : 'N'
+    //}
     for (let i = 0; i < count; i++) {
-        final += i % 2 === 0 ? 'R' : 'N'
+        final.push(i+'');
     }
 
-    // manipuler les cartes
-    // ...
+    const manipuled = manipule(final);
+    let actualLetter = 'N';
 
-    return final;
+    for (let i = 0; i < count; i++) {
+        rt.push({letter: manipuled[i], color: actualLetter});
+        actualLetter = actualLetter === 'N' ? 'R' : 'N';
+    }
+    return rt;
 }
 
 function App() {
