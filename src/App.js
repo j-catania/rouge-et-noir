@@ -91,9 +91,9 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Le rouge et noir</h1>
-            <h4>Le but : Face caché, placez la première carte sous la pile, sortez la seconde et ainsi de suite. Les
-                cartes sorties doivent alterner de couleur.</h4>
+            <h1>Le <span id="rouge">rouge</span> et <span id="noir">noir</span></h1>
+            <h5>Face caché, placez la première carte sous la pile, sortez la seconde et ainsi de suite. Les
+                cartes sorties doivent alterner de couleur.</h5>
             <small>C'est tout !</small>
             <div className="form">
                 <ToggleButtonGroup
