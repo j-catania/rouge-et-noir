@@ -2,7 +2,7 @@ import './App.css';
 import {Alert, Button, Snackbar, TextField, ToggleButton, ToggleButtonGroup} from '@mui/material';
 import {useState} from 'react';
 
-function isAlgoCorrect(algo) {
+const isAlgoCorrect = (algo) => {
     const splited = algo.split('');
     let result = '';
     let i = 0
@@ -21,12 +21,12 @@ function isAlgoCorrect(algo) {
         incorrect = incorrect || result[j] === result[j + 1];
     }
 
-    console.log(`%cAlgo : ${algo} ${incorrect ? 'KO' : 'OK'}`, `color: ${incorrect ? 'red' : 'green'}`)
+    console.log(`%cAlgo : ${algo} result[${result}]${incorrect ? 'KO' : 'OK'}`, `color: ${incorrect ? 'red' : 'green'}`)
 
     return !incorrect;
 }
 
-function translateNumbersToAlgo(numbers) {
+const translateNumbersToAlgo = (numbers) => {
     if (!numbers) {
         return '';
     }
@@ -47,11 +47,29 @@ function translateNumbersToAlgo(numbers) {
     return rt;
 }
 
+const findAlgo = (count) => {
+    let final = ''
+    for (let i = 0; i < count; i++) {
+        final += i % 2 === 0 ? 'R' : 'N'
+    }
+
+    // manipuler les cartes
+    // ...
+
+    return final;
+}
+
 function App() {
     const [open, setOpen] = useState(false);
     const [data, setData] = useState('');
     const [correct, setCorrect] = useState();
     const [type, setType] = useState('algo');
+    const [error, setError] = useState();
+
+    const validData = () => {
+
+    }
+
 
     return (
         <div className="App">
@@ -73,6 +91,7 @@ function App() {
                 <TextField label={type === 'algo' ? 'Algorithme' : 'Numéros'}
                            variant="outlined"
                            value={data}
+
                            onChange={e => {
                                setData(e.target.value)
                            }}/>
@@ -113,4 +132,4 @@ function App() {
 }
 
 export default App;
-export {isAlgoCorrect, translateNumbersToAlgo};
+export {isAlgoCorrect, translateNumbersToAlgo, findAlgo};

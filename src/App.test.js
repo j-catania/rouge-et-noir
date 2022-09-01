@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react';
-import App, {isAlgoCorrect, translateNumbersToAlgo} from './App';
+import App, {isAlgoCorrect, translateNumbersToAlgo, findAlgo} from './App';
 
 test('renders learn react link', () => {
     render(<App/>);
@@ -21,3 +21,7 @@ test('translate 1 2 1 2 2', () => {
     expect(rt).toBe('RNNRNNRR');
 })
 
+test('find algo for 8', () => {
+    const rt = findAlgo(8)
+    expect(rt).toBe('RNRNRNRN');
+})
