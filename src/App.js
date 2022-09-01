@@ -22,14 +22,14 @@ const isAlgoCorrect = (algo) => {
     const splited = algo.split('');
     let incorrect = false;
 
-    const result = manipule(splited).join();
+    const result = manipule(splited);
 
     for (let j = 0; j < result.length; j += 2) {
-        incorrect = incorrect || result[j] === result[j + 1];
-        console.log('compare', result[j], result[j + 1],  result[j] === result[j + 1], incorrect)
+        incorrect = incorrect || result[j] === result[j+1];
+        console.log('compare', result[j], result[j+1],  result[j] === result[j+1], incorrect)
     }
 
-    console.log(`%cAlgo : ${algo} result[${result}]${incorrect ? 'KO' : 'OK'}`, `color: ${incorrect ? 'red' : 'green'}`)
+    console.log(`%cAlgo : ${algo} result[${result.join('')}]${incorrect ? 'KO' : 'OK'}`, `color: ${incorrect ? 'red' : 'green'}`)
 
     return !incorrect;
 }
