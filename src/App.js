@@ -26,10 +26,9 @@ const isAlgoCorrect = (algo) => {
 
     for (let j = 0; j < result.length; j += 2) {
         incorrect = incorrect || result[j] === result[j+1];
-        console.log('compare', result[j], result[j+1],  result[j] === result[j+1], incorrect)
     }
 
-    console.log(`%cAlgo : ${algo} result[${result.join('')}]${incorrect ? 'KO' : 'OK'}`, `color: ${incorrect ? 'red' : 'green'}`)
+    //console.log(`%cAlgo : ${algo} result[${result.join('')}]${incorrect ? 'KO' : 'OK'}`, `color: ${incorrect ? 'red' : 'green'}`)
 
     return !incorrect;
 }
@@ -62,11 +61,11 @@ const findAlgo = (count) => {
     for (let i = 0; i < count; i++) {
         ordered.push(i+'');
     }
-console.log('ordered',ordered);
+//console.log('ordered',ordered);
 
     const manipuled = manipule(ordered);
     let actualLetter = 'N';
-console.log('manipuled',manipuled);
+//console.log('manipuled',manipuled);
     for (let i = 0; i < count; i++) {
         rt.push({letter: manipuled[i], color: actualLetter});
         actualLetter = actualLetter === 'N' ? 'R' : 'N';
@@ -75,7 +74,7 @@ console.log('manipuled',manipuled);
     for (let i = 0; i < count; i++) {
         ordered[i] = rt.find(item => item.letter === (i+'')).color;
     }
-console.log('ordered',ordered)
+//console.log('ordered',ordered)
 
     return ordered;
 }
