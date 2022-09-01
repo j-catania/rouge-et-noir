@@ -3,12 +3,12 @@ import {Alert, Button, Snackbar, TextField, ToggleButton, ToggleButtonGroup} fro
 import {useState} from 'react';
 
 const manipule = (array) => {
-    let result = '';
+    let result = [];
     let i = 0;
     
     while (array.length > 0) {
         if (i % 2 === 1) {
-            result += array.shift();
+            result.push(array.shift());
         } else {
             array.push(array.shift())
         }
@@ -22,7 +22,7 @@ const isAlgoCorrect = (algo) => {
     const splited = algo.split('');
     let incorrect = false;
 
-    const result = manipule(splited)
+    const result = manipule(splited).join();
 
     for (let j = 0; j < result.length; j += 2) {
         incorrect = incorrect || result[j] === result[j + 1];
