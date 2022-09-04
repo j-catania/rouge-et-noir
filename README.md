@@ -1,5 +1,5 @@
-# Getting Started with Create React App
-
+# Le rouge et noir
+[![Deploy static content to Pages](https://github.com/j-catania/rouge-et-noir/actions/workflows/pages.yml/badge.svg)](https://github.com/j-catania/rouge-et-noir/actions/workflows/pages.yml)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
