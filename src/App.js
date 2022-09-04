@@ -24,7 +24,7 @@ const isAlgoCorrect = (algo) => {
 
     const result = manipule(splited);
 
-    for (let j = 0; j < result.length; j += 2) {
+    for (let j = 0; j < result.length; j++) {
         incorrect = incorrect || result[j] === result[j + 1];
     }
 
